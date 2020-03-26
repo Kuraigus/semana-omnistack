@@ -1,8 +1,12 @@
 const express = require(`express`);
+const cors = require('cors')
+const routes = require('./routes')
 
 const app = express();
 
+app.use(cors())
 app.use(express.json());
+app.use(routes);
 
 /**
  * Rotas / Recurso
@@ -10,7 +14,7 @@ app.use(express.json());
 
 /**
  * Metodos HTTP:
- * 
+ *  
  * GET: Buscar/listar uma informção do back-end
  * POST: Criar uma informação no back-end
  * PUT: Alterar uma informação no back=end
@@ -25,13 +29,14 @@ app.use(express.json());
  * Request body: Corpo da requisição, utilizado para criar ou alterar recursos
  */
 
-app.post(`/users`, (request, response) => {
-    const body = request.body;
-    
-    return response.json({
-        evento: `Semana Omnistack 11.0`,
-        aluno: `Joao Victor Guntijo da Silva`
-    });
-});
+/**
+ * SQL: MySQL, SQLite, PostgreSQL, Oracle, Microsoft SQL Server
+ * NoSQL: MongoDB, CouchDB, etc
+ */
+
+/**
+ * Driver: SELECT * FROM users
+ * Query Builder: table('users').select('*').where()
+ */
 
 app.listen(3333);
